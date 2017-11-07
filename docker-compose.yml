@@ -1,0 +1,13 @@
+version: '3.2'
+services:
+  slackinvite:
+    hostname: ${SLACKIN_HOSTNAME}
+    command: '${SLACK_SUBDOMAIN} ${SLACK_API_TOKEN} ${GOOGLE_CAPTCHA_SECRET} ${GOOGLE_CAPTCHA_SITEKEY}'
+    image: opencadc/slackin
+    ports:
+      - '3000:3000'
+    networks:
+      - 'opencadc'
+
+networks:
+  opencadc:
