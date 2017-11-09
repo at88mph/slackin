@@ -5,4 +5,5 @@ services:
     image: opencadc/slackin
     ports:
       - '3000:3000'
-    network_mode: 'host'
+    environment:
+      - SLACK_INTERVAL=${SLACK_INTERVAL-10000}
