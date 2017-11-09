@@ -7,3 +7,4 @@ services:
       - '3000:3000'
     environment:
       - SLACK_INTERVAL=${SLACK_INTERVAL-10000}
+      - SLACK_CHANNELS=${SLACK_CHANNELS-general}
