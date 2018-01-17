@@ -1,10 +1,18 @@
 version: '3.2'
 services:
-  slackinvite:
-    command: '${SLACK_SUBDOMAIN} ${SLACK_API_TOKEN} ${GOOGLE_CAPTCHA_SECRET} ${GOOGLE_CAPTCHA_SITEKEY}'
+  canfar_slackin:
+    command: '${CANFAR_SLACK_SUBDOMAIN} ${CANFAR_SLACK_API_TOKEN} ${GOOGLE_CAPTCHA_SECRET} ${GOOGLE_CAPTCHA_SITEKEY}'
     image: opencadc/slackin
     ports:
-      - '3000:3000'
+      - '3001:3000'
     environment:
       - SLACK_INTERVAL=${SLACK_INTERVAL-10000}
-      - SLACK_CHANNELS=${SLACK_CHANNELS-general}
+      - SLACK_CHANNELS=${SLACK_CHANNELS-support}
+  cadc_slackin:
+    command: '${CADC_SLACK_SUBDOMAIN} ${CADC_SLACK_API_TOKEN} ${GOOGLE_CAPTCHA_SECRET} ${GOOGLE_CAPTCHA_SITEKEY}'
+    image: opencadc/slackin
+    ports:
+      - '3002:3000'
+    environment:
+      - SLACK_INTERVAL=${SLACK_INTERVAL-10000}
+      - SLACK_CHANNELS=${SLACK_CHANNELS-support}
